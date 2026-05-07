@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رادار الرياضة الإلكترونية السعودية</title>
+    <!-- استدعاء أدوات التصميم السريع -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #0b0e11; color: white; overflow-x: hidden; }
+        .saudi-gradient { background: linear-gradient(90deg, #16a34a 0%, #064e3b 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .live-dot { height: 8px; width: 8px; background-color: #ff4655; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 70, 85, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 70, 85, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 70, 85, 0); } }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر (العنوان) -->
+    <nav class="p-5 border-b border-white/10 flex justify-between items-center bg-[#0b0e11] sticky top-0 z-50">
+        <h1 class="text-2xl font-black text-green-500 tracking-tighter">SAUDI <span class="text-white font-light">ESPORTS</span></h1>
+        <div class="space-x-6 space-x-reverse hidden md:flex font-bold text-sm">
+            <a href="#" class="text-green-500">الرئيسية</a>
+            <a href="#" class="hover:text-green-500">البطولات</a>
+            <a href="#" class="hover:text-green-500">الفرق</a>
+            <a href="#" class="hover:text-green-500">النتائج</a>
+        </div>
+        <button class="bg-green-600 px-4 py-2 rounded-full text-xs font-bold">تسجيل الدخول</button>
+    </nav>
+
+    <!-- شريط الأخبار المتحرك (News Ticker) -->
+    <div class="bg-green-900/30 py-2 border-b border-green-500/20 overflow-hidden whitespace-nowrap">
+        <div class="inline-block animate-marquee px-4">
+            <span class="mx-4 text-xs font-bold italic">🔥 نادي فالكونز (Falcons) يتصدر التصنيف العالمي 🇸🇦</span>
+            <span class="mx-4 text-xs font-bold italic">🏆 كأس العالم للرياضات الإلكترونية في الرياض يقترب</span>
+            <span class="mx-4 text-xs font-bold italic">🎮 انتقالات: لاعب جديد ينضم لصفوف Twisted Minds</span>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <!-- قسم المباريات (بيانات يتم تحديثها) -->
+            <div class="lg:col-span-2">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold border-r-4 border-green-500 pr-3">المباريات المباشرة والقادمة</h2>
+                    <span class="text-xs text-gray-500">تحديث تلقائي من الرادار</span>
+                </div>
+
+                <div id="matches-list" class="space-y-4">
+                    <!-- كروت المباريات ستظهر هنا برمجياً -->
+                    <div class="glass-card p-6 rounded-2xl animate-pulse text-center text-gray-500">جاري سحب أحدث المباريات من Liquipedia...</div>
+                </div>
+            </div>
+
+            <!-- الجانب الأيمن (الفرق السعودية) -->
+            <div class="space-y-8">
+                <h2 class="text-2xl font-bold border-r-4 border-white pr-3">أهم الفرق السعودية</h2>
+                <div class="glass-card rounded-2xl p-5 space-y-4">
+                    <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl hover:bg-green-600/20 transition">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🦅</span>
+                            <div><p class="font-bold">Team Falcons</p><p class="text-[10px] text-gray-400">المركز الأول عالمياً</p></div>
+                        </div>
+                        <span class="text-green-500 font-bold">#1</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl hover:bg-green-600/20 transition">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🧠</span>
+                            <div><p class="font-bold">Twisted Minds</p><p class="text-[10px] text-gray-400">نخبة الشرق الأوسط</p></div>
+                        </div>
+                        <span class="text-green-500 font-bold">#5</span>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-white/5 rounded-xl hover:bg-green-600/20 transition">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xl">🏎️</span>
+                            <div><p class="font-bold">R8 Esports</p><p class="text-[10px] text-gray-400">أبطال ألعاب الموبايل</p></div>
+                        </div>
+                        <span class="text-green-500 font-bold">#12</span>
+                    </div>
+                </div>
+
+                <!-- إحصائية سريعة -->
+                <div class="saudi-gradient rounded-2xl p-6 text-center shadow-xl shadow-green-900/20">
+                    <p class="text-xs font-bold opacity-80 uppercase">إجمالي جوائز الفرق السعودية 2024</p>
+                    <h3 class="text-4xl font-black mt-2">+$15.2M</h3>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- البرمجة (التي تقوم بعملية الزرف أو جلب البيانات) -->
+    <script>
+        // مصفوفة بيانات افتراضية تحاكي ما سيتم سحبه من Liquipedia
+        const fakeData = [
+            { teamA: "Team Falcons 🇸🇦", teamB: "FaZe Clan", game: "CS2", time: "LIVE", tournament: "PGL Major" },
+            { teamA: "Twisted Minds 🇸🇦", teamB: "G2 Esports", game: "PUBG", time: "22:00", tournament: "Global Series" },
+            { teamA: "R8 Esports 🇸🇦", teamB: "T1", game: "Honor of Kings", time: "01:30", tournament: "Invitational" },
+            { teamA: "POWR 🇸🇦", teamB: "Navi", game: "Valorant", time: "منتهية", tournament: "Arab League" }
+        ];
+
+        function renderMatches() {
+            const list = document.getElementById('matches-list');
+            list.innerHTML = ''; // تنظيف القائمة
+
+            fakeData.forEach(match => {
+                const isLive = match.time === 'LIVE';
+                list.innerHTML += `
+                    <div class="glass-card p-5 rounded-2xl flex flex-col md:flex-row justify-between items-center hover:border-green-500/50 transition cursor-pointer">
+                        <div class="flex flex-col mb-4 md:mb-0">
+                            <span class="text-[10px] text-green-500 font-bold uppercase tracking-widest">${match.game}</span>
+                            <span class="text-sm text-gray-400 font-bold">${match.tournament}</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <div class="text-right"><p class="font-bold">${match.teamA}</p></div>
+                            <div class="flex flex-col items-center">
+                                <span class="text-xs font-black text-gray-600 italic">VS</span>
+                                ${isLive ? '<span class="text-[10px] text-red-500 font-black"><span class="live-dot ml-1"></span>مباشر</span>' : `<span class="text-[10px] text-gray-500">${match.time}</span>`}
+                            </div>
+                            <div class="text-left"><p class="font-bold">${match.teamB}</p></div>
+                        </div>
+                        <button class="mt-4 md:mt-0 border border-white/20 hover:bg-white hover:text-black px-6 py-2 rounded-xl text-xs font-bold transition">التفاصيل</button>
+                    </div>
+                `;
+            });
+        }
+
+        // تشغيل الوظيفة عند فتح الصفحة
+        window.onload = renderMatches;
+
+        // ملاحظة: لجلب بيانات حقيقية من Liquipedia، تحتاج لسيرفر بسيط (Node.js) 
+        // لأن المتصفح يمنع السحب المباشر لأسباب أمنية (CORS).
+    </script>
+
+    <style>
+        .animate-marquee { display: inline-block; animation: marquee 20s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+    </style>
+</body>
+</html>
